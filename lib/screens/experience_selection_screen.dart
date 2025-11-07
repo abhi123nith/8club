@@ -9,6 +9,7 @@ import 'package:hotspots_hostes/screens/onboarding_question_screen.dart';
 import 'package:hotspots_hostes/utils/app_colors.dart';
 import 'package:hotspots_hostes/utils/next_button.dart';
 import 'package:hotspots_hostes/utils/zig_zag_background.dart';
+import 'package:hotspots_hostes/widgets/shimmer_experience_card.dart';
 
 class ExperienceSelectionScreen extends ConsumerWidget {
   const ExperienceSelectionScreen({super.key});
@@ -67,27 +68,20 @@ class _ExperienceSelectionContentState
         _selectedIds.remove(id);
       } else {
         _selectedIds.add(id);
-        // Move selected card to first position
+
         _moveCardToFirst(id, experiences);
       }
     });
   }
 
-  void _moveCardToFirst(int id, List<Experience> experiences) {
-    // This is handled in the UI by reordering the list
-  }
+  void _moveCardToFirst(int id, List<Experience> experiences) {}
 
   void _navigateToNextScreen() {
-    // Log the state
-    debugPrint("Selected Experience IDs: $_selectedIds");
-    debugPrint("Description: ${_descController.text}");
-
-    // Store the selected experience ids and text in the state
+    // Storing  the selected experience ids and text in the state
     ref.read(selectedExperiencesProvider.notifier).state = _selectedIds;
     ref.read(experienceDescriptionProvider.notifier).state =
         _descController.text;
 
-    // Navigate to the onboarding screen with a smooth transition
     Navigator.of(context).push(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 360),
@@ -98,7 +92,6 @@ class _ExperienceSelectionContentState
               experienceDescription: _descController.text,
             ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          // Combine a subtle slide with a fade for a smooth entrance
           final tween = Tween<Offset>(
             begin: const Offset(0.0, 0.06),
             end: Offset.zero,
@@ -119,10 +112,10 @@ class _ExperienceSelectionContentState
 
   @override
   Widget build(BuildContext context) {
-    // Check if keyboard is open
+    //  keyboard checking
     final bool isKeyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
 
-    // Check if next button should be enabled
+    // disable or enable next button
     final bool isNextEnabled =
         _selectedIds.isNotEmpty || _descController.text.isNotEmpty;
 
@@ -132,7 +125,7 @@ class _ExperienceSelectionContentState
         child: SafeArea(
           child: Column(
             children: [
-              // Top bar at the top
+              // Top bar
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -298,13 +291,31 @@ class _ExperienceSelectionContentState
                               },
                             );
                           },
-                          loading: () => const Center(
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                AppColors.blue9196FF,
+                          loading: () {
+                            return Container(
+                              height: isKeyboardOpen ? 150 : 180,
+                              padding: const EdgeInsets.only(left: 3),
+                              margin: const EdgeInsets.only(left: 12),
+                              color: Colors.black,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  final double verticalOffset = index.isEven
+                                      ? -10.0
+                                      : 10.0;
+                                  final double tiltAngle =
+                                      0.06 - (index * 0.07);
+
+                                  return ShimmerExperienceCard(
+                                    verticalOffset: verticalOffset,
+                                    tiltAngle: tiltAngle,
+                                    height: isKeyboardOpen ? 150 : 180,
+                                  );
+                                },
                               ),
-                            ),
-                          ),
+                            );
+                          },
                           error: (error, stack) {
                             // Fallback to mock data if API fails
                             final mockExperiences = _getMockExperiences();
@@ -426,8 +437,7 @@ class _ExperienceSelectionContentState
                               fontSize: 16,
                             ),
                             decoration: InputDecoration(
-                              isCollapsed:
-                                  true, // 👈 Prevents extra internal padding
+                              isCollapsed: true,
                               border: InputBorder.none,
                               hintText: TextConstants.experienceDescriptionHint,
                               hintStyle:

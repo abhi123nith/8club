@@ -6,7 +6,8 @@ final apiServiceProvider = Provider((ref) => ApiService());
 
 final experiencesProvider = FutureProvider<List<Experience>>((ref) async {
   final apiService = ref.read(apiServiceProvider);
-  return apiService.getExperiences();
+  final result = await apiService.getExperiences();
+  return result;
 });
 
 final selectedExperiencesProvider = StateProvider<Set<int>>((ref) => {});

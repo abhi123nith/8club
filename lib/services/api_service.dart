@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:hotspots_hostes/models/experience.dart';
 
@@ -7,6 +9,8 @@ class ApiService {
 
   Future<List<Experience>> getExperiences() async {
     try {
+      await Future.delayed(const Duration(milliseconds: 1500));
+
       final response = await _dio.get('$baseUrl/experiences?active=true');
 
       if (response.statusCode == 200) {

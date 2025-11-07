@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             letterSpacing: -0.84,
           ),
         ),
-        // Use Space Grotesk as the base text theme across the app
+        // Using Space Grotesk across the app
         textTheme: GoogleFonts.spaceGroteskTextTheme(
           ThemeData.dark().textTheme,
         ),

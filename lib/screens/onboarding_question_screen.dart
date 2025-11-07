@@ -74,7 +74,6 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
 
   Future<void> _initRecorder() async {
     await _recorder.openRecorder();
-    await Permission.microphone.request();
   }
 
   Future<void> _initPlayer() async {
@@ -82,21 +81,33 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
   }
 
   Future<void> _initCamera() async {
-    _availableCameras = await availableCameras();
+    // avaible camersa
+    if (_availableCameras.isEmpty) {
+      _availableCameras = await availableCameras();
+    }
+
     if (_availableCameras.isNotEmpty) {
+      // Disposing controller if it exists
+      await _cameraController?.dispose();
+
       _cameraController = CameraController(
         _availableCameras[_cameraIndex],
         ResolutionPreset.medium,
       );
-      await _cameraController?.initialize();
-      setState(() {});
+
+      try {
+        await _cameraController?.initialize();
+        setState(() {});
+      } catch (e) {
+        debugPrint('Error initializing camera: $e');
+      }
     }
   }
 
   void _switchCamera() async {
     if (_availableCameras.length < 2) return;
 
-    // If recording, stop first
+    
     if (_isRecordingVideo) {
       await _stopVideoRecording();
       await Future.delayed(const Duration(milliseconds: 400));
@@ -120,7 +131,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       _waveform = List.generate(30, (index) => Random().nextDouble() * 35 + 15);
     });
 
-    // Slightly faster refresh for smoother animation
+    
     Future.delayed(const Duration(milliseconds: 80), _simulateWaveform);
   }
 
@@ -141,7 +152,8 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
   }
 
   Future<void> _startAudioRecording() async {
-    if (await Permission.microphone.isGranted) {
+    final status = await Permission.microphone.request();
+    if (status.isGranted) {
       final dir = await getApplicationDocumentsDirectory();
       final path =
           '${dir.path}/recording_${DateTime.now().millisecondsSinceEpoch}.aac';
@@ -153,6 +165,9 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       });
       _simulateWaveform();
       _startTimer();
+    } else if (status.isPermanentlyDenied) {
+      // Open app settings if permission is permanently denied
+      await openAppSettings();
     }
   }
 
@@ -164,14 +179,28 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
 
   Future<void> _startVideoRecording() async {
     final status = await Permission.camera.request();
-    if (!status.isGranted || _cameraController == null) return;
+    if (status.isGranted) {
+      if (_cameraController == null ||
+          !_cameraController!.value.isInitialized) {
+        await _initCamera();
 
-    try {
-      await _cameraController?.startVideoRecording();
-      _startTimer();
-      setState(() => _isRecordingVideo = true);
-    } catch (e) {
-      debugPrint('Error starting video: $e');
+        if (_cameraController == null ||
+            !_cameraController!.value.isInitialized) {
+          debugPrint('Error: Camera failed to initialize');
+          return;
+        }
+      }
+
+      try {
+        await _cameraController?.startVideoRecording();
+        _startTimer();
+        setState(() => _isRecordingVideo = true);
+      } catch (e) {
+        debugPrint('Error starting video: $e');
+      }
+    } else if (status.isPermanentlyDenied) {
+      // Open app settings if permission is permanently denied
+      await openAppSettings();
     }
   }
 
@@ -312,7 +341,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       );
     }
 
-    // Full card as before
+    // Full card 
     if (_isRecordingAudio) {
       return _buildAudioCard(
         title: "Audio is recording...",
@@ -439,7 +468,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
   }
 
   Widget _buildVideoSection() {
-    // Compact card when keyboard is open + video recorded
+    // Card when keyboard is open + video recorded
     if (_recordedVideoPath != null &&
         _videoPlayerController != null &&
         _videoPlayerController!.value.isInitialized &&
@@ -525,7 +554,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       );
     }
 
-    // Otherwise keep your full layout
+     // full layout for video (preview)
     if (_isRecordingVideo) {
       return _buildVideoCard(
         title: "Recording Video... ${_formatDuration(_recordingDuration)}",
@@ -693,7 +722,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                     child: Text(
                       TextConstants.onboardingQuestionHint,
                       style: GoogleFonts.spaceGrotesk(
-                        // fontFamily: 'Space Grotesk',
+                     
                         color: Colors.white70,
                         fontSize: 14,
                       ),
@@ -705,7 +734,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                   curve: Curves.easeInOut,
                   height: MediaQuery.of(context).viewInsets.bottom > 0
                       ? 140
-                      : 190, // adjust heights
+                      : 190, 
                   child: TextField(
                     controller: _controller,
                     maxLines: null,
@@ -761,13 +790,13 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                                       colors: [
                                         Color(
                                           0x66FFFFFF,
-                                        ), // bright edge top-left
+                                        ), 
                                         Color(
                                           0x33FFFFFF,
-                                        ), // subtle mid transition
+                                        ), 
                                         Color(
                                           0x0DFFFFFF,
-                                        ), // soft bottom-right fade
+                                        ), 
                                       ],
                                       stops: [0.0, 0.4, 1.0],
                                     )
@@ -818,13 +847,13 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                                       colors: [
                                         Color(
                                           0x66FFFFFF,
-                                        ), // bright edge top-left
+                                        ),
                                         Color(
                                           0x33FFFFFF,
-                                        ), // subtle mid transition
+                                        ), 
                                         Color(
                                           0x0DFFFFFF,
-                                        ), // soft bottom-right fade
+                                        ), 
                                       ],
                                       stops: [0.0, 0.4, 1.0],
                                     )

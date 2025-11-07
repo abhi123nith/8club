@@ -1,18 +1,14 @@
-// -------------------------- Dynamic Static Waveform Line --------------------------
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 class StaticWaveformLine extends StatelessWidget {
-  /// Fraction of the line to fill (0.0 → empty, 1.0 → fully filled)
   final double fillFraction;
 
-  /// Height of the waveform line (default: 20)
   final double height;
 
-  /// Active (filled) color
   final Color activeColor;
 
-  /// Inactive (remaining) color
   final Color inactiveColor;
 
   const StaticWaveformLine({
@@ -69,11 +65,12 @@ class StaticWavePainter extends CustomPainter {
 
     final double splitX = size.width * fillFraction;
 
-    // Active (filled) section
+     // filled part
     final Path activePath = Path();
     for (double x = 0; x <= splitX; x++) {
       final y =
-          math.sin((x / wavelength) * 2 * math.pi) * amplitude + size.height / 2;
+          math.sin((x / wavelength) * 2 * math.pi) * amplitude +
+          size.height / 2;
       if (x == 0) {
         activePath.moveTo(x, y);
       } else {
@@ -82,11 +79,12 @@ class StaticWavePainter extends CustomPainter {
     }
     canvas.drawPath(activePath, activePaint);
 
-    // Inactive (remaining) section
+    //  remaining part
     final Path inactivePath = Path();
     for (double x = splitX; x <= size.width; x++) {
       final y =
-          math.sin((x / wavelength) * 2 * math.pi) * amplitude + size.height / 2;
+          math.sin((x / wavelength) * 2 * math.pi) * amplitude +
+          size.height / 2;
       if (x == splitX) {
         inactivePath.moveTo(x, y);
       } else {
