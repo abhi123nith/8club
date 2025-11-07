@@ -107,7 +107,6 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
   void _switchCamera() async {
     if (_availableCameras.length < 2) return;
 
-    
     if (_isRecordingVideo) {
       await _stopVideoRecording();
       await Future.delayed(const Duration(milliseconds: 400));
@@ -131,7 +130,6 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       _waveform = List.generate(30, (index) => Random().nextDouble() * 35 + 15);
     });
 
-    
     Future.delayed(const Duration(milliseconds: 80), _simulateWaveform);
   }
 
@@ -341,7 +339,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       );
     }
 
-    // Full card 
+    // Full card
     if (_isRecordingAudio) {
       return _buildAudioCard(
         title: "Audio is recording...",
@@ -554,7 +552,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
       );
     }
 
-     // full layout for video (preview)
+    // full layout for video (preview)
     if (_isRecordingVideo) {
       return _buildVideoCard(
         title: "Recording Video... ${_formatDuration(_recordingDuration)}",
@@ -722,7 +720,6 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                     child: Text(
                       TextConstants.onboardingQuestionHint,
                       style: GoogleFonts.spaceGrotesk(
-                     
                         color: Colors.white70,
                         fontSize: 14,
                       ),
@@ -734,20 +731,18 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                   curve: Curves.easeInOut,
                   height: MediaQuery.of(context).viewInsets.bottom > 0
                       ? 140
-                      : 190, 
+                      : 190,
                   child: TextField(
                     controller: _controller,
                     maxLines: null,
                     expands: true,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Space Grotesk',
-                    ),
-
+                    style: GoogleFonts.spaceGrotesk(color: Colors.white),
+                    textAlignVertical: TextAlignVertical.top,
                     decoration: InputDecoration(
-                      hintText: "/Start typing here",
+                      hintText: "/Start Typing here",
                       hintStyle: CustomTextStyles.experienceDescriptionHint,
                       filled: true,
+                     
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       fillColor: const Color(0xFF151515),
                       contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
@@ -788,15 +783,9 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        Color(
-                                          0x66FFFFFF,
-                                        ), 
-                                        Color(
-                                          0x33FFFFFF,
-                                        ), 
-                                        Color(
-                                          0x0DFFFFFF,
-                                        ), 
+                                        Color(0x66FFFFFF),
+                                        Color(0x33FFFFFF),
+                                        Color(0x0DFFFFFF),
                                       ],
                                       stops: [0.0, 0.4, 1.0],
                                     )
@@ -845,15 +834,9 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        Color(
-                                          0x66FFFFFF,
-                                        ),
-                                        Color(
-                                          0x33FFFFFF,
-                                        ), 
-                                        Color(
-                                          0x0DFFFFFF,
-                                        ), 
+                                        Color(0x66FFFFFF),
+                                        Color(0x33FFFFFF),
+                                        Color(0x0DFFFFFF),
                                       ],
                                       stops: [0.0, 0.4, 1.0],
                                     )

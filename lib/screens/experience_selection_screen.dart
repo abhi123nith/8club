@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hotspots_hostes/constants/text_constants.dart';
 import 'package:hotspots_hostes/constants/text_styles.dart';
 import 'package:hotspots_hostes/models/experience.dart';
@@ -431,9 +432,9 @@ class _ExperienceSelectionContentState
                             maxLength: 250,
                             keyboardType: TextInputType.multiline,
                             textInputAction: TextInputAction.newline,
-                            style: TextStyle(
+                            style: GoogleFonts.spaceGrotesk(
                               color: AppColors.white,
-                              fontFamily: 'Space Grotesk',
+                             fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
                             decoration: InputDecoration(
@@ -446,6 +447,7 @@ class _ExperienceSelectionContentState
                                 color: AppColors.whiteB8,
                                 fontSize: 12,
                               ),
+                              alignLabelWithHint: true,
                             ),
                           ),
                         ),
