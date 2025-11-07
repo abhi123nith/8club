@@ -179,7 +179,7 @@ class _ExperienceSelectionContentState
                       // Experience cards
                       Container(
                         padding: EdgeInsets.only(left: 3),
-                        margin: EdgeInsets.only(left:  12),
+                        margin: EdgeInsets.only(left: 12),
                         color: Colors.black,
                         height: isKeyboardOpen ? 150 : 180,
                         child: widget.experiencesAsync.when(
@@ -402,7 +402,9 @@ class _ExperienceSelectionContentState
                           decoration: BoxDecoration(
                             color: AppColors.textFieldBackground,
                             borderRadius: BorderRadius.circular(12),
-                            border: isKeyboardOpen ?  Border.all(color: AppColors.blue5961FF) : null,
+                            border: isKeyboardOpen
+                                ? Border.all(color: AppColors.blue5961FF)
+                                : null,
                           ),
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextField(

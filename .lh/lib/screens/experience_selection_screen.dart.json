@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 215,
+            "activePatchIndex": 217,
             "patches": [
                 {
                     "date": 1762433593007,
@@ -868,6 +868,14 @@
                 {
                     "date": 1762508782015,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -401,9 +401,9 @@\n                         child: Container(\n                           decoration: BoxDecoration(\n                             color: AppColors.textFieldBackground,\n                             borderRadius: BorderRadius.circular(12),\n-                            border: isKeyboardOpen ?  Border.all(color: AppColors.blue5961FF),\n+                            border: isKeyboardOpen ? null Border.all(color: AppColors.blue5961FF),\n                           ),\n                           padding: const EdgeInsets.symmetric(horizontal: 16),\n                           child: TextField(\n                             controller: _descController,\n"
+                },
+                {
+                    "date": 1762508965867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -401,9 +401,9 @@\n                         child: Container(\n                           decoration: BoxDecoration(\n                             color: AppColors.textFieldBackground,\n                             borderRadius: BorderRadius.circular(12),\n-                            border: isKeyboardOpen ? null Border.all(color: AppColors.blue5961FF),\n+                            border: isKeyboardOpen ?  Border.all(color: AppColors.blue5961FF) : null,\n                           ),\n                           padding: const EdgeInsets.symmetric(horizontal: 16),\n                           child: TextField(\n                             controller: _descController,\n"
+                },
+                {
+                    "date": 1762508972252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -178,9 +178,9 @@\n \n                       // Experience cards\n                       Container(\n                         padding: EdgeInsets.only(left: 3),\n-                        margin: EdgeInsets.only(left:  12),\n+                        margin: EdgeInsets.only(left: 12),\n                         color: Colors.black,\n                         height: isKeyboardOpen ? 150 : 180,\n                         child: widget.experiencesAsync.when(\n                           data: (experiences) {\n@@ -401,9 +401,11 @@\n                         child: Container(\n                           decoration: BoxDecoration(\n                             color: AppColors.textFieldBackground,\n                             borderRadius: BorderRadius.circular(12),\n-                            border: isKeyboardOpen ?  Border.all(color: AppColors.blue5961FF) : null,\n+                            border: isKeyboardOpen\n+                                ? Border.all(color: AppColors.blue5961FF)\n+                                : null,\n                           ),\n                           padding: const EdgeInsets.symmetric(horizontal: 16),\n                           child: TextField(\n                             controller: _descController,\n"
                 }
             ],
             "date": 1762433593007,

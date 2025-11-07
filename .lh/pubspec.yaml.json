@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1762436840197,
@@ -40,6 +40,10 @@
                 {
                     "date": 1762497894766,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,9 @@\n   uses-material-design: true\r\n \r\n   # To add assets to your application, add an assets section, like this:\r\n   assets:\r\n-    - /a_dot_burr.jpeg\r\n+    - assets/g\r\n   #   - images/a_dot_ham.jpeg\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n   # https://flutter.dev/to/resolution-aware-images\r\n"
+                },
+                {
+                    "date": 1762508995539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,10 @@\n   video_player: ^2.4.7\r\n   \r\n   # Permission handling - (version compatible)\r\n   permission_handler: ^11.0.0\r\n+  fluentui_system_icons: ^1.1.273\r\n+  flutter_svg: ^2.2.2\r\n \r\n dev_dependencies:\r\n   flutter_test:\r\n     sdk: flutter\r\n@@ -79,9 +81,14 @@\n   uses-material-design: true\r\n \r\n   # To add assets to your application, add an assets section, like this:\r\n   assets:\r\n-    - assets/g\r\n+    - assets/icons/\r\n+  \r\n+  # Google Fonts package for loading Space Grotesk via code\r\n+  # (preferred when font files aren't stored in assets)\r\n+dependencies:\r\n+  google_fonts: ^5.0.0\r\n   #   - images/a_dot_ham.jpeg\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n   # https://flutter.dev/to/resolution-aware-images\r\n"
                 }
             ],
             "date": 1762436840197,
