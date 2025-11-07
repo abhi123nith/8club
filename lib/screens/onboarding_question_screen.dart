@@ -6,7 +6,9 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hotspots_hostes/constants/text_constants.dart';
+import 'package:hotspots_hostes/constants/text_styles.dart';
 import 'package:hotspots_hostes/models/wave_line.dart';
 import 'package:hotspots_hostes/utils/app_colors.dart';
 import 'package:hotspots_hostes/utils/next_button.dart';
@@ -314,6 +316,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
     if (_isRecordingAudio) {
       return _buildAudioCard(
         title: "Audio is recording...",
+
         trailing: SvgPicture.asset(
           'assets/icons/delete.svg',
           width: 20,
@@ -419,10 +422,10 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  color: Color(0xFFDADADA),
-                  fontFamily: 'Space Grotesk',
+                style: GoogleFonts.spaceGrotesk(
+                  fontWeight: FontWeight.w400,
                   fontSize: 16,
+                  height: 20 / 14,
                 ),
               ),
               if (trailing != null) trailing,
@@ -546,7 +549,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
               bottom: 6,
               right: 6,
               child: IconButton(
-                icon: const Icon(Icons.switch_camera, color: Color(0xFF9196FF)),
+                icon: const Icon(Icons.cameraswitch, color: Color(0xFF9196FF)),
                 onPressed: _switchCamera,
               ),
             ),
@@ -624,10 +627,10 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  color: Color(0xFFDADADA),
-                  fontFamily: 'Space Grotesk',
+                style: GoogleFonts.spaceGrotesk(
+                  fontWeight: FontWeight.w400,
                   fontSize: 16,
+                  height: 20 / 14,
                 ),
               ),
               if (trailing != null) trailing,
@@ -679,21 +682,18 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                 const Spacer(),
                 Text(
                   TextConstants.onboardingQuestionTitle,
-                  style: TextStyle(
-                    fontFamily: 'Space Grotesk',
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
+                  style: !_isKeyboardVisible
+                      ? CustomTextStyles.experienceSelectionTitleLarge
+                      : CustomTextStyles.experienceSelectionTitleSmall,
                   textAlign: TextAlign.left,
                 ),
-                if (!hasMedia || _isKeyboardVisible)
+                if (!hasMedia || !_isKeyboardVisible)
                   Padding(
                     padding: EdgeInsets.only(top: 6, bottom: 20),
                     child: Text(
                       TextConstants.onboardingQuestionHint,
-                      style: TextStyle(
-                        fontFamily: 'Space Grotesk',
+                      style: GoogleFonts.spaceGrotesk(
+                        // fontFamily: 'Space Grotesk',
                         color: Colors.white70,
                         fontSize: 14,
                       ),
@@ -716,17 +716,13 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                     ),
 
                     decoration: InputDecoration(
-                      hintText: "Start typing here...",
-                      hintStyle: const TextStyle(
-                        color: Colors.white38,
-                        fontFamily: 'Space Grotesk',
-                        
-                      ),
+                      hintText: "/Start typing here",
+                      hintStyle: CustomTextStyles.experienceDescriptionHint,
                       filled: true,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       fillColor: const Color(0xFF151515),
-                       contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
-                       alignLabelWithHint: true,
+                      contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+                      alignLabelWithHint: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
                         borderSide: _isKeyboardVisible
@@ -736,7 +732,7 @@ class _OnboardingQuestionScreenState extends State<OnboardingQuestionScreen>
                     ),
                   ),
                 ),
-           
+
                 const SizedBox(height: 20),
                 _buildAudioSection(),
                 _buildVideoSection(),

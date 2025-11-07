@@ -409,20 +409,26 @@ class _ExperienceSelectionContentState
                                 ? Border.all(color: AppColors.blue5961FF)
                                 : null,
                           ),
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 6,
+                          ),
                           child: TextField(
                             controller: _descController,
-                            maxLines: 4,
+                            minLines: 3,
+                            maxLines: null,
                             maxLength: 250,
-
+                            keyboardType: TextInputType.multiline,
+                            textInputAction: TextInputAction.newline,
                             style: TextStyle(
                               color: AppColors.white,
                               fontFamily: 'Space Grotesk',
                               fontSize: 16,
                             ),
                             decoration: InputDecoration(
+                              isCollapsed:
+                                  true, // 👈 Prevents extra internal padding
                               border: InputBorder.none,
-
                               hintText: TextConstants.experienceDescriptionHint,
                               hintStyle:
                                   CustomTextStyles.experienceDescriptionHint,
