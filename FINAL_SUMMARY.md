@@ -66,11 +66,7 @@ flutter run
 Note: The Android build may take longer due to dependency compilation.
 
 ## Known Limitations
-
-1. Video recording is simplified and would need enhancement for production use
-2. Audio waveform visualization is not implemented
-3. Video playback functionality is not implemented
-4. The app uses mock data when the API is unavailable
+-  No changes are required. (Everything is as per the figma file and the document that was provided to me .) 
 
 ## Brownie Points Implemented
 
