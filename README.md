@@ -39,6 +39,12 @@ A Flutter application for the onboarding process of Hotspot Hosts, featuring exp
 - Video recording with live preview
 - Media playback capabilities
 
+  ### Additional features or enhancements I've implemented.
+  - Shimmer Skelton
+  - Mock data incase api is not responding
+  - Video Preview
+  - Camera Switch
+    
 ## Project Structure
 
 ```
