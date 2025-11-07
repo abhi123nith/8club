@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 217,
+            "activePatchIndex": 218,
             "patches": [
                 {
                     "date": 1762433593007,
@@ -876,6 +876,10 @@
                 {
                     "date": 1762508972252,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -178,9 +178,9 @@\n \n                       // Experience cards\n                       Container(\n                         padding: EdgeInsets.only(left: 3),\n-                        margin: EdgeInsets.only(left:  12),\n+                        margin: EdgeInsets.only(left: 12),\n                         color: Colors.black,\n                         height: isKeyboardOpen ? 150 : 180,\n                         child: widget.experiencesAsync.when(\n                           data: (experiences) {\n@@ -401,9 +401,11 @@\n                         child: Container(\n                           decoration: BoxDecoration(\n                             color: AppColors.textFieldBackground,\n                             borderRadius: BorderRadius.circular(12),\n-                            border: isKeyboardOpen ?  Border.all(color: AppColors.blue5961FF) : null,\n+                            border: isKeyboardOpen\n+                                ? Border.all(color: AppColors.blue5961FF)\n+                                : null,\n                           ),\n                           padding: const EdgeInsets.symmetric(horizontal: 16),\n                           child: TextField(\n                             controller: _descController,\n"
+                },
+                {
+                    "date": 1762509550886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -141,14 +141,14 @@\n                 child: Row(\n                   mainAxisAlignment: MainAxisAlignment.spaceBetween,\n                   children: [\n                     IconButton(\n-                      icon: const Icon(Icons.arrow_back, color: Colors.white),\n+                      icon: const Icon(Icons.arrow_back, color: AppColors.white),\n                       onPressed: () {},\n                     ),\n                     StaticWaveformLine(fillFraction: 0.3),\n                     IconButton(\n-                      icon: const Icon(Icons.close, color: Colors.white),\n+                      icon: const Icon(Icons.close, color: AppColors.white),\n                       onPressed: () {},\n                     ),\n                   ],\n                 ),\n@@ -297,10 +297,10 @@\n                           },\n                           loading: () => const Center(\n                             child: CircularProgressIndicator(\n                               valueColor: AlwaysStoppedAnimation<Color>(\n-                                Color(0xFF9196FF),\n-                              ),\n+                                  AppColors.blue9196FF,\n+                                ),\n                             ),\n                           ),\n                           error: (error, stack) {\n                             // Fallback to mock data if API fails\n"
                 }
             ],
             "date": 1762433593007,

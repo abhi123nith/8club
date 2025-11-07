@@ -14,6 +14,11 @@ class AppColors {
   static const Color whiteBorder2 = Color(
     0x29FFFFFF,
   ); // #FFFFFF29 (border2 - same as white29)
+  static const Color white54 = Color(0x8AFFFFFF); // ~54% white
+  static const Color white70 = Color(0xB3FFFFFF); // ~70% white
+  static const Color white38 = Color(0x61FFFFFF); // ~38% white
+  static const Color white24 = Color(0x3DFFFFFF); // ~24% white
+  static const Color white12 = Color(0x1FFFFFFF); // ~12% white
 
   //  Dark grays / blacks
   static const Color black10 = Color(0xFF101010); // #101010

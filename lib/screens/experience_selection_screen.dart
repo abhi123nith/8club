@@ -142,12 +142,15 @@ class _ExperienceSelectionContentState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.white,
+                      ),
                       onPressed: () {},
                     ),
                     StaticWaveformLine(fillFraction: 0.3),
                     IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white),
+                      icon: const Icon(Icons.close, color: AppColors.white),
                       onPressed: () {},
                     ),
                   ],
@@ -298,7 +301,7 @@ class _ExperienceSelectionContentState
                           loading: () => const Center(
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                Color(0xFF9196FF),
+                                AppColors.blue9196FF,
                               ),
                             ),
                           ),
