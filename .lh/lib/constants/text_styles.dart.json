@@ -1,0 +1,42 @@
+{
+    "sourceFile": "lib/constants/text_styles.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1762436405051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1762436753873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,35 +3,35 @@\n class CustomTextStyles {\n   // Experience Selection Screen Styles\n   static const TextStyle experienceSelectionTitleLarge = TextStyle(\n     fontFamily: 'Space Grotesk',\n-    fontWeight: FontWeight.bold, // 700\n+    fontWeight: FontWeight., // 700\n     fontSize: 24,\n-    height: 32/24, // line-height: 32px / font-size: 24px\n+    height: 32 / 24, // line-height: 32px / font-size: 24px\n     letterSpacing: -0.02 * 24, // letter-spacing: -2% of 24px\n   );\n \n   static const TextStyle experienceSelectionTitleSmall = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 14,\n-    height: 20/14, // line-height: 20px / font-size: 14px\n+    height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n   );\n \n   static const TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    height: 28/20, // line-height: 28px / font-size: 20px\n+    height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n   // Onboarding Question Screen Styles\n   static const TextStyle onboardingQuestionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 14,\n\\ No newline at end of file\n-    height: 20/14, // line-height: 20px / font-size: 14px\n+    height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n   );\n-}\n+}\n"
+                },
+                {
+                    "date": 1762504483053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n class CustomTextStyles {\n   // Experience Selection Screen Styles\n   static const TextStyle experienceSelectionTitleLarge = TextStyle(\n     fontFamily: 'Space Grotesk',\n-    fontWeight: FontWeight., // 700\n+    fontWeight: FontWeight.w700, // 700\n     fontSize: 24,\n     height: 32 / 24, // line-height: 32px / font-size: 24px\n     letterSpacing: -0.02 * 24, // letter-spacing: -2% of 24px\n   );\n@@ -21,8 +21,9 @@\n   static const TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n+    \n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n@@ -33,5 +34,5 @@\n     fontSize: 14,\n     height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n   );\n-}\n\\ No newline at end of file\n+}\n"
+                },
+                {
+                    "date": 1762504490416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\n+import 'package:hotspots_hostes/utils/app_colors.dart';\n \n class CustomTextStyles {\n   // Experience Selection Screen Styles\n   static const TextStyle experienceSelectionTitleLarge = TextStyle(\n@@ -17,13 +18,13 @@\n     height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n   );\n \n-  static const TextStyle experienceDescriptionHint = TextStyle(\n+  static  TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    \n+    color: AppColors.,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n"
+                },
+                {
+                    "date": 1762504497495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   static  TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    color: AppColors.,\n+    color: AppColors.whiteB8,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n"
+                },
+                {
+                    "date": 1762504503550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   static  TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    color: AppColors.whiteB8,\n+    color: AppColors.,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n"
+                },
+                {
+                    "date": 1762504511005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   static  TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    color: AppColors.,\n+    color: AppColors.whiteBorder2,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n"
+                }
+            ],
+            "date": 1762436405051,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nclass CustomTextStyles {\n  // Experience Selection Screen Styles\n  static const TextStyle experienceSelectionTitleLarge = TextStyle(\n    fontFamily: 'Space Grotesk',\n    fontWeight: FontWeight.bold, // 700\n    fontSize: 24,\n    height: 32/24, // line-height: 32px / font-size: 24px\n    letterSpacing: -0.02 * 24, // letter-spacing: -2% of 24px\n  );\n\n  static const TextStyle experienceSelectionTitleSmall = TextStyle(\n    fontFamily: 'Space Grotesk',\n    fontWeight: FontWeight.normal, // 400\n    fontSize: 14,\n    height: 20/14, // line-height: 20px / font-size: 14px\n    letterSpacing: 0, // letter-spacing: 0%\n  );\n\n  static const TextStyle experienceDescriptionHint = TextStyle(\n    fontFamily: 'Space Grotesk',\n    fontWeight: FontWeight.normal, // 400\n    fontSize: 20,\n    height: 28/20, // line-height: 28px / font-size: 20px\n    letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n  );\n\n  // Onboarding Question Screen Styles\n  static const TextStyle onboardingQuestionHint = TextStyle(\n    fontFamily: 'Space Grotesk',\n    fontWeight: FontWeight.normal, // 400\n    fontSize: 14,\n    height: 20/14, // line-height: 20px / font-size: 14px\n    letterSpacing: 0, // letter-spacing: 0%\n  );\n}"
+        }
+    ]
+}

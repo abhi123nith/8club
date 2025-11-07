@@ -1,0 +1,38 @@
+{
+    "sourceFile": "lib/constants/text_constants.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1762436393116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1762507115077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n class TextConstants {\n   // Experience Selection Screen Texts\n-  static const String experienceSelectionTitle = \"What kind of hotspots do you want to host?\";\n-  static const String experienceDescriptionHint = \"/ Describe your perfect hotspot\";\n-  \n+  static const String experienceSelectionTitle =\n+      \"What kind of hotspots do you want to host?\";\n+  static const String experienceDescriptionHint =\n\\ No newline at end of file\n+      \"/ Describe your perfect hotspot\";\n+ \n   // Onboarding Question Screen Texts\n-  static const String onboardingQuestionHint = \"Tell us about your intent and what motivates you to create experiences\";\n-}\n+  static const String onboardingQuestionHint =\n+      \"Tell us about your intent and what motivates you to create experiences\";\n+}\n"
+                },
+                {
+                    "date": 1762507122592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,9 @@\n   static const String experienceDescriptionHint =\n       \"/ Describe your perfect hotspot\";\n  \n   // Onboarding Question Screen Texts\n+  \n   static const String onboardingQuestionHint =\n       \"Tell us about your intent and what motivates you to create experiences\";\n\\ No newline at end of file\n-}\n+\n+}\n"
+                },
+                {
+                    "date": 1762507129113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n   static const String experienceDescriptionHint =\n       \"/ Describe your perfect hotspot\";\n  \n   // Onboarding Question Screen Texts\n-  \n+  static const String onboardingQuestionTitle =\n+      \"Tell us about \";\n   static const String onboardingQuestionHint =\n       \"Tell us about your intent and what motivates you to create experiences\";\n\\ No newline at end of file\n \n-}\n+}\n"
+                },
+                {
+                    "date": 1762507135607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       \"/ Describe your perfect hotspot\";\n  \n   // Onboarding Question Screen Texts\n   static const String onboardingQuestionTitle =\n-      \"Tell us about \";\n+      \"Why do you want to host with us?\";\n   static const String onboardingQuestionHint =\n       \"Tell us about your intent and what motivates you to create experiences\";\n \n\\ No newline at end of file\n-}\n+}\n"
+                },
+                {
+                    "date": 1762507194328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,11 @@\n   static const String experienceSelectionTitle =\n       \"What kind of hotspots do you want to host?\";\n   static const String experienceDescriptionHint =\n       \"/ Describe your perfect hotspot\";\n- \n+\n   // Onboarding Question Screen Texts\n   static const String onboardingQuestionTitle =\n       \"Why do you want to host with us?\";\n   static const String onboardingQuestionHint =\n-      \"Tell us about your intent and what motivates you to create experiences\";\n-\n\\ No newline at end of file\n-}\n+      \"Tell us about your intent and what motivates you to create experiences.\";\n+}\n"
+                }
+            ],
+            "date": 1762436393116,
+            "name": "Commit-0",
+            "content": "class TextConstants {\n  // Experience Selection Screen Texts\n  static const String experienceSelectionTitle = \"What kind of hotspots do you want to host?\";\n  static const String experienceDescriptionHint = \"/ Describe your perfect hotspot\";\n  \n  // Onboarding Question Screen Texts\n  static const String onboardingQuestionHint = \"Tell us about your intent and what motivates you to create experiences\";\n}"
+        }
+    ]
+}

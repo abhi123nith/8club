@@ -1,0 +1,46 @@
+{
+    "sourceFile": "lib/utils/zig_zag_background.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1762458488350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1762458494458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import 'package:flutter/material.dart';\n+\n class ZigzagBackground extends StatelessWidget {\n   final Widget child;\n   const ZigzagBackground({super.key, required this.child});\n \n"
+                },
+                {
+                    "date": 1762458668993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,49 +0,0 @@\n-import 'package:flutter/material.dart';\n-\n-class ZigzagBackground extends StatelessWidget {\n-  final Widget child;\n-  const ZigzagBackground({super.key, required this.child});\n-\n-  @override\n-  Widget build(BuildContext context) {\n-    return Container(\n-      decoration: const BoxDecoration(\n-        gradient: LinearGradient(\n-          colors: [Color(0xFF0D0D0D), Color(0xFF1A1A1A)],\n-          begin: Alignment.topCenter,\n-          end: Alignment.bottomCenter,\n-        ),\n-      ),\n-      child: CustomPaint(\n-        painter: ZigzagPainter(),\n-        child: child,\n-      ),\n-    );\n-  }\n-}\n-\n-class ZigzagPainter extends CustomPainter {\n-  @override\n-  void paint(Canvas canvas, Size size) {\n-    final Paint paint = Paint()\n-      ..color = Colors.white.withOpacity(0.04)\n-      ..strokeWidth = 1.1\n-      ..style = PaintingStyle.stroke;\n-\n-    const double stepX = 40;\n-    const double stepY = 16;\n-\n-    for (double y = 0; y < size.height; y += stepY * 3) {\n-      final Path path = Path();\n-      path.moveTo(0, y + stepY);\n-      for (double x = 0; x < size.width + stepX; x += stepX) {\n-        path.lineTo(x + stepX / 2, y);\n-        path.lineTo(x + stepX, y + stepY);\n-      }\n-      canvas.drawPath(path, paint);\n-    }\n-  }\n-\n-  @override\n-  bool shouldRepaint(CustomPainter oldDelegate) => false;\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1762503937762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,63 @@\n+import 'dart:math' as math;\n+import 'package:flutter/material.dart';\n \n+class ZigzagBackground extends StatelessWidget {\n+  final Widget child;\n+  const ZigzagBackground({super.key, required this.child});\n+\n+  @override\n+  Widget build(BuildContext context) {\n+    return Container(\n+      decoration: const BoxDecoration(\n+        gradient: LinearGradient(\n+          colors: [Color(0xFF0D0D0D), Color(0xFF1A1A1A)],\n+          begin: Alignment.topCenter,\n+          end: Alignment.bottomCenter,\n+        ),\n+      ),\n+      child: CustomPaint(\n+        painter: ZigzagPainter(),\n+        child: child,\n+      ),\n+    );\n+  }\n+}\n+\n+class ZigzagPainter extends CustomPainter {\n+  @override\n+  void paint(Canvas canvas, Size size) {\n+    final Paint paint = Paint()\n+      ..color = Colors.white.withOpacity(0.04)\n+      ..strokeWidth = .1\n+      ..style = PaintingStyle.stroke;\n+\n+    const double stepX = 40;\n+    const double stepY = 16;\n+\n+    // Move the origin to the center so rotation looks clean\n+    canvas.save();\n+    canvas.translate(size.width / 2, size.height / 2);\n+\n+    // Rotate the canvas by 45 degrees (π/4 radians)\n+    canvas.rotate(-math.pi / 4);\n+\n+    // Move back so the pattern covers the full visible area\n+    canvas.translate(-size.width / 1.5, -size.height / 1.5);\n+\n+    // Draw diagonal zigzag lines\n+    for (double y = 0; y < size.height * 2; y += stepY * 3) {\n+      final Path path = Path();\n+      path.moveTo(0, y + stepY);\n+      for (double x = 0; x < size.width * 2; x += stepX) {\n+        path.lineTo(x + stepX / 2, y);\n+        path.lineTo(x + stepX, y + stepY);\n+      }\n+      canvas.drawPath(path, paint);\n+    }\n+\n+    canvas.restore();\n+  }\n+\n+  @override\n+  bool shouldRepaint(CustomPainter oldDelegate) => false;\n+}\n"
+                },
+                {
+                    "date": 1762503953340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,12 @@\n   @override\n   void paint(Canvas canvas, Size size) {\n     final Paint paint = Paint()\n       ..color = Colors.white.withOpacity(0.04)\n-      ..strokeWidth = .1\n+      ..strokeWidth = 2.1\n       ..style = PaintingStyle.stroke;\n \n-    const double stepX = 40;\n+    const double stepX = 0;\n     const double stepY = 16;\n \n     // Move the origin to the center so rotation looks clean\n     canvas.save();\n"
+                },
+                {
+                    "date": 1762503962377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n       ..color = Colors.white.withOpacity(0.04)\n       ..strokeWidth = 2.1\n       ..style = PaintingStyle.stroke;\n \n-    const double stepX = 0;\n-    const double stepY = 16;\n+    const double stepX = 30;\n+    const double stepY = 1;\n \n     // Move the origin to the center so rotation looks clean\n     canvas.save();\n     canvas.translate(size.width / 2, size.height / 2);\n"
+                },
+                {
+                    "date": 1762503982757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,11 @@\n       ..strokeWidth = 2.1\n       ..style = PaintingStyle.stroke;\n \n     const double stepX = 30;\n-    const double stepY = 1;\n+    const double stepY = 12;\n \n-    // Move the origin to the center so rotation looks clean\n+   \n     canvas.save();\n     canvas.translate(size.width / 2, size.height / 2);\n \n     // Rotate the canvas by 45 degrees (π/4 radians)\n"
+                },
+                {
+                    "date": 1762503989038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,12 +37,10 @@\n    \n     canvas.save();\n     canvas.translate(size.width / 2, size.height / 2);\n \n-    // Rotate the canvas by 45 degrees (π/4 radians)\n     canvas.rotate(-math.pi / 4);\n \n-    // Move back so the pattern covers the full visible area\n     canvas.translate(-size.width / 1.5, -size.height / 1.5);\n \n     // Draw diagonal zigzag lines\n     for (double y = 0; y < size.height * 2; y += stepY * 3) {\n"
+                }
+            ],
+            "date": 1762458488350,
+            "name": "Commit-0",
+            "content": "class ZigzagBackground extends StatelessWidget {\n  final Widget child;\n  const ZigzagBackground({super.key, required this.child});\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      decoration: const BoxDecoration(\n        gradient: LinearGradient(\n          colors: [Color(0xFF0D0D0D), Color(0xFF1A1A1A)],\n          begin: Alignment.topCenter,\n          end: Alignment.bottomCenter,\n        ),\n      ),\n      child: CustomPaint(\n        painter: ZigzagPainter(),\n        child: child,\n      ),\n    );\n  }\n}\n\nclass ZigzagPainter extends CustomPainter {\n  @override\n  void paint(Canvas canvas, Size size) {\n    final Paint paint = Paint()\n      ..color = Colors.white.withOpacity(0.04)\n      ..strokeWidth = 1.1\n      ..style = PaintingStyle.stroke;\n\n    const double stepX = 40;\n    const double stepY = 16;\n\n    for (double y = 0; y < size.height; y += stepY * 3) {\n      final Path path = Path();\n      path.moveTo(0, y + stepY);\n      for (double x = 0; x < size.width + stepX; x += stepX) {\n        path.lineTo(x + stepX / 2, y);\n        path.lineTo(x + stepX, y + stepY);\n      }\n      canvas.drawPath(path, paint);\n    }\n  }\n\n  @override\n  bool shouldRepaint(CustomPainter oldDelegate) => false;\n}\n"
+        }
+    ]
+}

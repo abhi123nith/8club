@@ -1,0 +1,318 @@
+{
+    "sourceFile": "lib/utils/next_button.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 75,
+            "patches": [
+                {
+                    "date": 1762459529512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1762459636925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n               stops: [0.0, 0.4, 1.0],\n             ),\n             border: Border.all(\n               color: const Color(0x33FFFFFF), // thin outer border\n-              width: 1.0,\n+              width: 1.,\n             ),\n             boxShadow: const [\n               BoxShadow(\n                 color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762459654259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,16 +31,16 @@\n               stops: [0.0, 0.4, 1.0],\n             ),\n             border: Border.all(\n               color: const Color(0x33FFFFFF), // thin outer border\n-              width: 1.,\n+              width: 1.5,\n             ),\n             boxShadow: const [\n               BoxShadow(\n                 color: Colors.black54,\n                 offset: Offset(0, 2),\n                 blurRadius: 6,\n-                spreadRadius: 0,\n+                spreadRadius: 0.,\n               ),\n             ],\n           ),\n           child: ElevatedButton(\n"
+                },
+                {
+                    "date": 1762459680276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         child: Container(\n           decoration: BoxDecoration(\n             borderRadius: BorderRadius.circular(14),\n             gradient: const LinearGradient(\n-              begin: Alignment.topCenter,\n+              begin: Alignment.,\n               end: Alignment.bottomCenter,\n               colors: [\n                 Color(0x0DFFFFFF), // Top subtle shine\n                 Color(0x0AFFFFFF), // Slight bottom fade\n@@ -38,9 +38,9 @@\n               BoxShadow(\n                 color: Colors.black54,\n                 offset: Offset(0, 2),\n                 blurRadius: 6,\n-                spreadRadius: 0.,\n+                spreadRadius: 0.4,\n               ),\n             ],\n           ),\n           child: ElevatedButton(\n"
+                },
+                {
+                    "date": 1762459686052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         child: Container(\n           decoration: BoxDecoration(\n             borderRadius: BorderRadius.circular(14),\n             gradient: const LinearGradient(\n-              begin: Alignment.,\n+              begin: Alignment.topLeft,\n               end: Alignment.bottomCenter,\n               colors: [\n                 Color(0x0DFFFFFF), // Top subtle shine\n                 Color(0x0AFFFFFF), // Slight bottom fade\n"
+                },
+                {
+                    "date": 1762459721979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n           decoration: BoxDecoration(\n             borderRadius: BorderRadius.circular(14),\n             gradient: const LinearGradient(\n               begin: Alignment.topLeft,\n-              end: Alignment.bottomCenter,\n+              end: Alignment.bottomRight,\n               colors: [\n                 Color(0x0DFFFFFF), // Top subtle shine\n                 Color(0x0AFFFFFF), // Slight bottom fade\n                 Color(0xFF0E0E0E), // Deep bottom tone\n@@ -42,8 +42,9 @@\n                 spreadRadius: 0.4,\n               ),\n             ],\n           ),\n+       \n           child: ElevatedButton(\n             onPressed: isEnabled ? onPressed : null,\n             style: ElevatedButton.styleFrom(\n               backgroundColor: Colors.transparent,\n"
+                },
+                {
+                    "date": 1762459772723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,34 +17,9 @@\n       child: AnimatedOpacity(\n         duration: const Duration(milliseconds: 400),\n         opacity: isEnabled ? 1.0 : 0.7,\n         child: Container(\n-          decoration: BoxDecoration(\n-            borderRadius: BorderRadius.circular(14),\n-            gradient: const LinearGradient(\n-              begin: Alignment.topLeft,\n-              end: Alignment.bottomRight,\n-              colors: [\n-                Color(0x0DFFFFFF), // Top subtle shine\n-                Color(0x0AFFFFFF), // Slight bottom fade\n-                Color(0xFF0E0E0E), // Deep bottom tone\n-              ],\n-              stops: [0.0, 0.4, 1.0],\n-            ),\n-            border: Border.all(\n-              color: const Color(0x33FFFFFF), // thin outer border\n-              width: 1.5,\n-            ),\n-            boxShadow: const [\n-              BoxShadow(\n-                color: Colors.black54,\n-                offset: Offset(0, 2),\n-                blurRadius: 6,\n-                spreadRadius: 0.4,\n-              ),\n-            ],\n-          ),\n-       \n+     \n           child: ElevatedButton(\n             onPressed: isEnabled ? onPressed : null,\n             style: ElevatedButton.styleFrom(\n               backgroundColor: Colors.transparent,\n"
+                },
+                {
+                    "date": 1762459788799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,34 @@\n       child: AnimatedOpacity(\n         duration: const Duration(milliseconds: 400),\n         opacity: isEnabled ? 1.0 : 0.7,\n         child: Container(\n-     \n+          decoration: BoxDecoration(\n+            borderRadius: BorderRadius.circular(14),\n+            gradient: const LinearGradient(\n+              begin: Alignment.topLeft,\n+              end: Alignment.bottomRight,\n+              colors: [\n+                Color(0xFF0E0E0E), // dark at top-left\n+                Color(0x80FFFFFF), // white-ish center glow\n+                Color(0xFF0E0E0E), // dark at bottom-right\n+              ],\n+              stops: [0.0, 0.5, 1.0], // keep the middle bright\n+            ),\n+            border: Border.all(\n+              color: Color(0x33FFFFFF), // thin outer border with low opacity\n+              width: 1.3,\n+            ),\n+            boxShadow: const [\n+              BoxShadow(\n+                color: Colors.black54,\n+                offset: Offset(0, 2),\n+                blurRadius: 6,\n+                spreadRadius: 0.4,\n+              ),\n+            ],\n+          ),\n+\n           child: ElevatedButton(\n             onPressed: isEnabled ? onPressed : null,\n             style: ElevatedButton.styleFrom(\n               backgroundColor: Colors.transparent,\n"
+                },
+                {
+                    "date": 1762459799210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n                 Color(0xFF0E0E0E), // dark at top-left\n                 Color(0x80FFFFFF), // white-ish center glow\n                 Color(0xFF0E0E0E), // dark at bottom-right\n               ],\n-              stops: [0.0, 0.5, 1.0], // keep the middle bright\n+              stops: [0.0, 0., 1.0], // keep the middle bright\n             ),\n             border: Border.all(\n               color: Color(0x33FFFFFF), // thin outer border with low opacity\n               width: 1.3,\n"
+                },
+                {
+                    "date": 1762459805057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n                 Color(0xFF0E0E0E), // dark at top-left\n                 Color(0x80FFFFFF), // white-ish center glow\n                 Color(0xFF0E0E0E), // dark at bottom-right\n               ],\n-              stops: [0.0, 0., 1.0], // keep the middle bright\n+              stops: [0.0, 0.2, 0.8,1.0], // keep the middle bright\n             ),\n             border: Border.all(\n               color: Color(0x33FFFFFF), // thin outer border with low opacity\n               width: 1.3,\n"
+                },
+                {
+                    "date": 1762459810246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n                 Color(0xFF0E0E0E), // dark at top-left\n                 Color(0x80FFFFFF), // white-ish center glow\n                 Color(0xFF0E0E0E), // dark at bottom-right\n               ],\n-              stops: [0.0, 0.2, 0.8,1.0], // keep the middle bright\n+              stops: [0.0, 0.2, 0.,1.0], // keep the middle bright\n             ),\n             border: Border.all(\n               color: Color(0x33FFFFFF), // thin outer border with low opacity\n               width: 1.3,\n"
+                },
+                {
+                    "date": 1762459826963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n                 Color(0xFF0E0E0E), // dark at top-left\n                 Color(0x80FFFFFF), // white-ish center glow\n                 Color(0xFF0E0E0E), // dark at bottom-right\n               ],\n-              stops: [0.0, 0.2, 0.,1.0], // keep the middle bright\n+              stops: [0.0, 0.,1.0], // keep the middle bright\n             ),\n             border: Border.all(\n               color: Color(0x33FFFFFF), // thin outer border with low opacity\n               width: 1.3,\n"
+                },
+                {
+                    "date": 1762459841345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,12 @@\n               begin: Alignment.topLeft,\n               end: Alignment.bottomRight,\n               colors: [\n                 Color(0xFF0E0E0E), // dark at top-left\n-                Color(0x80FFFFFF), // white-ish center glow\n+                Color.fromARGB(128, 105, 104, 104), // white-ish center glow\n                 Color(0xFF0E0E0E), // dark at bottom-right\n               ],\n-              stops: [0.0, 0.,1.0], // keep the middle bright\n+              stops: [0.0, 0.4,1.0], // keep the middle bright\n             ),\n             border: Border.all(\n               color: Color(0x33FFFFFF), // thin outer border with low opacity\n               width: 1.3,\n"
+                },
+                {
+                    "date": 1762459909516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,83 +0,0 @@\n-import 'package:flutter/material.dart';\n-\n-class GradientNextButton extends StatelessWidget {\n-  final bool isEnabled;\n-  final VoidCallback? onPressed;\n-\n-  const GradientNextButton({\n-    super.key,\n-    required this.isEnabled,\n-    this.onPressed,\n-  });\n-\n-  @override\n-  Widget build(BuildContext context) {\n-    return Padding(\n-      padding: const EdgeInsets.symmetric(horizontal: 20),\n-      child: AnimatedOpacity(\n-        duration: const Duration(milliseconds: 400),\n-        opacity: isEnabled ? 1.0 : 0.7,\n-        child: Container(\n-          decoration: BoxDecoration(\n-            borderRadius: BorderRadius.circular(14),\n-            gradient: const LinearGradient(\n-              begin: Alignment.topLeft,\n-              end: Alignment.bottomRight,\n-              colors: [\n-                Color(0xFF0E0E0E), // dark at top-left\n-                Color.fromARGB(128, 105, 104, 104), // white-ish center glow\n-                Color(0xFF0E0E0E), // dark at bottom-right\n-              ],\n-              stops: [0.0, 0.4,1.0], // keep the middle bright\n-            ),\n-            border: Border.all(\n-              color: Color(0x33FFFFFF), // thin outer border with low opacity\n-              width: 1.3,\n-            ),\n-            boxShadow: const [\n-              BoxShadow(\n-                color: Colors.black54,\n-                offset: Offset(0, 2),\n-                blurRadius: 6,\n-                spreadRadius: 0.4,\n-              ),\n-            ],\n-          ),\n-\n-          child: ElevatedButton(\n-            onPressed: isEnabled ? onPressed : null,\n-            style: ElevatedButton.styleFrom(\n-              backgroundColor: Colors.transparent,\n-              shadowColor: Colors.transparent,\n-              padding: const EdgeInsets.symmetric(vertical: 16),\n-              shape: RoundedRectangleBorder(\n-                borderRadius: BorderRadius.circular(14),\n-              ),\n-            ),\n-            child: Row(\n-              mainAxisAlignment: MainAxisAlignment.center,\n-              children: [\n-                const Text(\n-                  \"Next\",\n-                  style: TextStyle(\n-                    fontFamily: 'Space Grotesk',\n-                    fontSize: 16,\n-                    color: Colors.white,\n-                    fontWeight: FontWeight.w600,\n-                    letterSpacing: 0.5,\n-                  ),\n-                ),\n-                const SizedBox(width: 6),\n-                Icon(\n-                  Icons.arrow_forward_ios_rounded,\n-                  color: Colors.white.withOpacity(0.9),\n-                  size: 18,\n-                ),\n-              ],\n-            ),\n-          ),\n-        ),\n-      ),\n-    );\n-  }\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1762459945780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,96 @@\n+import 'package:flutter/material.dart';\n \n+class GradientNextButton extends StatelessWidget {\n+  final bool isEnabled;\n+  final VoidCallback? onPressed;\n+\n+  const GradientNextButton({\n+    super.key,\n+    required this.isEnabled,\n+    this.onPressed,\n+  });\n+\n+  @override\n+  Widget build(BuildContext context) {\n+    return Padding(\n+      padding: const EdgeInsets.symmetric(horizontal: 20),\n+      child: AnimatedOpacity(\n+        duration: const Duration(milliseconds: 400),\n+        opacity: isEnabled ? 1.0 : 0.7,\n+        child: Container(\n+          decoration: BoxDecoration(\n+            borderRadius: BorderRadius.circular(14),\n+            // Outer gradient border container\n+            gradient: const LinearGradient(\n+              begin: Alignment.topLeft,\n+              end: Alignment.bottomRight,\n+              colors: [\n+                Color(0x66FFFFFF), // bright edge top-left\n+                Color(0x33FFFFFF), // subtle mid transition\n+                Color(0x0DFFFFFF), // soft bottom-right fade\n+              ],\n+              stops: [0.0, 0.4, 1.0],\n+            ),\n+          ),\n+          child: Container(\n+            margin: const EdgeInsets.all(1.5), // border thickness\n+            decoration: BoxDecoration(\n+              borderRadius: BorderRadius.circular(14),\n+              gradient: const LinearGradient(\n+                begin: Alignment.topLeft,\n+                end: Alignment.bottomRight,\n+                colors: [\n+                  Color(0xFF0E0E0E), // dark top-left\n+                  Color(0x99FFFFFF),\n+                   // bright center\n+                  Color(0xFF0E0E0E), // dark bottom-right\n+                ],\n+                stops: [0.0, 0.5, 1.0],\n+              ),\n+              boxShadow: const [\n+                BoxShadow(\n+                  color: Colors.black54,\n+                  offset: Offset(0, 2),\n+                  blurRadius: 6,\n+                  spreadRadius: 0.4,\n+                ),\n+              ],\n+            ),\n+            child: ElevatedButton(\n+              onPressed: isEnabled ? onPressed : null,\n+              style: ElevatedButton.styleFrom(\n+                backgroundColor: Colors.transparent,\n+                shadowColor: Colors.transparent,\n+                shape: RoundedRectangleBorder(\n+                  borderRadius: BorderRadius.circular(14),\n+                ),\n+                padding: const EdgeInsets.symmetric(vertical: 16),\n+              ),\n+              child: Row(\n+                mainAxisAlignment: MainAxisAlignment.center,\n+                children: [\n+                  const Text(\n+                    \"Next\",\n+                    style: TextStyle(\n+                      fontFamily: 'Space Grotesk',\n+                      fontSize: 16,\n+                      color: Colors.white,\n+                      fontWeight: FontWeight.w600,\n+                      letterSpacing: 0.5,\n+                    ),\n+                  ),\n+                  const SizedBox(width: 6),\n+                  Icon(\n+                    Icons.arrow_forward_ios_rounded,\n+                    color: Colors.white.withOpacity(0.9),\n+                    size: 18,\n+                  ),\n+                ],\n+              ),\n+            ),\n+          ),\n+        ),\n+      ),\n+    );\n+  }\n+}\n"
+                },
+                {
+                    "date": 1762459951913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,12 +41,12 @@\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color(0xFF0E0E0E), // dark top-left\n                   Color(0x99FFFFFF),\n-                   // bright center\n+                    Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n-                stops: [0.0, 0.5, 1.0],\n+                stops: [0.0, 0.3,0 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762459958374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                   Color(0x99FFFFFF),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n-                stops: [0.0, 0.3,0 1.0],\n+                stops: [0.0, 0.,0.6, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762459982848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,14 +39,14 @@\n               gradient: const LinearGradient(\n                 begin: Alignment.topLeft,\n                 end: Alignment.bottomRight,\n                 colors: [\n-                  Color(0xFF0E0E0E), // dark top-left\n+                  Color.fromARGB(255, 59, 58, 58), // dark top-left\n                   Color(0x99FFFFFF),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n-                stops: [0.0, 0.,0.6, 1.0],\n+                stops: [0.0, 0.8,0.6, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762459992647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n               gradient: const LinearGradient(\n                 begin: Alignment.topLeft,\n                 end: Alignment.bottomRight,\n                 colors: [\n-                  Color.fromARGB(255, 59, 58, 58), // dark top-left\n+                  Color.fromARGB(255, 39, 37, 37), // dark top-left\n                   Color(0x99FFFFFF),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n"
+                },
+                {
+                    "date": 1762460001626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                   Color(0x99FFFFFF),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n-                stops: [0.0, 0.8,0.6, 1.0],\n+                stops: [0.0, 0.,0.6, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762460016454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,14 +39,14 @@\n               gradient: const LinearGradient(\n                 begin: Alignment.topLeft,\n                 end: Alignment.bottomRight,\n                 colors: [\n-                  Color.fromARGB(255, 39, 37, 37), // dark top-left\n+                  Color.fromARGB(255, 19, 19, 19), // dark top-left\n                   Color(0x99FFFFFF),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n-                stops: [0.0, 0.,0.6, 1.0],\n+                stops: [0.0, 0.7,0.9, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762460029498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                 begin: Alignment.topLeft,\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color.fromARGB(255, 19, 19, 19), // dark top-left\n-                  Color(0x99FFFFFF),\n+                  Color.fromARGB(153, 122, 120, 120),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n                 stops: [0.0, 0.7,0.9, 1.0],\n"
+                },
+                {
+                    "date": 1762460042343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                 begin: Alignment.topLeft,\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color.fromARGB(255, 19, 19, 19), // dark top-left\n-                  Color.fromARGB(153, 122, 120, 120),\n+                  Color.fromARGB(153, 157, 155, 155),\n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n                 stops: [0.0, 0.7,0.9, 1.0],\n"
+                },
+                {
+                    "date": 1762460055597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color.fromARGB(255, 19, 19, 19), // dark top-left\n                   Color.fromARGB(153, 157, 155, 155),\n+                  \n                     Color(0x99FFFFFF), // bright center\n                   Color(0xFF0E0E0E), // dark bottom-right\n                 ],\n                 stops: [0.0, 0.7,0.9, 1.0],\n"
+                },
+                {
+                    "date": 1762460069912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,11 @@\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color.fromARGB(255, 19, 19, 19), // dark top-left\n                   Color.fromARGB(153, 157, 155, 155),\n+                   Color.fromARGB(153, 157, 155, 155),\n                   \n-                    Color(0x99FFFFFF), // bright center\n-                  Color(0xFF0E0E0E), // dark bottom-right\n+                \n                 ],\n                 stops: [0.0, 0.7,0.9, 1.0],\n               ),\n               boxShadow: const [\n"
+                },
+                {
+                    "date": 1762460076824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,13 @@\n                 end: Alignment.bottomRight,\n                 colors: [\n                   Color.fromARGB(255, 19, 19, 19), // dark top-left\n                   Color.fromARGB(153, 157, 155, 155),\n-                   Color.fromARGB(153, 157, 155, 155),\n-                  \n-                \n+                  Color.fromARGB(153, 157, 155, 155),\n+\n+                  Color.fromARGB(255, 19, 19, 19),\n                 ],\n-                stops: [0.0, 0.7,0.9, 1.0],\n+                stops: [0.0, 0.7, 0., 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762460088108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                   Color.fromARGB(153, 157, 155, 155),\n \n                   Color.fromARGB(255, 19, 19, 19),\n                 ],\n-                stops: [0.0, 0.7, 0., 1.0],\n+                stops: [0.0, 0., 0.8, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762460107011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                   Color.fromARGB(153, 157, 155, 155),\n \n                   Color.fromARGB(255, 19, 19, 19),\n                 ],\n-                stops: [0.0, 0., 0.8, 1.0],\n+                stops: [0.0, 0.6, 0.5, 1.0],\n               ),\n               boxShadow: const [\n                 BoxShadow(\n                   color: Colors.black54,\n"
+                },
+                {
+                    "date": 1762460223372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color: Colors.white,\n+                      color:i Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460248110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,14 +69,14 @@\n               ),\n               child: Row(\n                 mainAxisAlignment: MainAxisAlignment.center,\n                 children: [\n-                  const Text(\n+                   Text(\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:i Colors.white,\n+                      color: Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460253506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color: Colors.white,\n+                      color:is Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460260525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:is Colors.white,\n+                      color:isEnabled ? :Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460268355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:isEnabled ? :Colors.white,\n+                      color:isEnabled ?Colors.b :Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460284043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:isEnabled ?Colors.b :Colors.white,\n+                      color:!isEnabled ?Colors.black87 :Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460336575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:!isEnabled ?Colors.black87 :Colors.white,\n+                      color:!isEnabled ? :Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460342084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,10 @@\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:!isEnabled ? :Colors.white,\n+                      color:!isEnabled ?const Color(0xFFFFFFFF):\n+ :Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460361450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,15 +69,16 @@\n               ),\n               child: Row(\n                 mainAxisAlignment: MainAxisAlignment.center,\n                 children: [\n-                   Text(\n+                  Text(\n                     \"Next\",\n                     style: TextStyle(\n                       fontFamily: 'Space Grotesk',\n                       fontSize: 16,\n-                      color:!isEnabled ?const Color(0xFFFFFFFF):\n- :Colors.white,\n+                      color: !isEnabled\n+                          ? const Color(0xFFFFFFFF)\n+                          : Colors.white,\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n"
+                },
+                {
+                    "date": 1762460379665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n             ),\n             child: ElevatedButton(\n               onPressed: isEnabled ? onPressed : null,\n               style: ElevatedButton.styleFrom(\n-                backgroundColor: Colors.transparent,\n+                backgroundColor:i Colors.transparent,\n                 shadowColor: Colors.transparent,\n                 shape: RoundedRectangleBorder(\n                   borderRadius: BorderRadius.circular(14),\n                 ),\n"
+                },
+                {
+                    "date": 1762460385357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n             ),\n             child: ElevatedButton(\n               onPressed: isEnabled ? onPressed : null,\n               style: ElevatedButton.styleFrom(\n-                backgroundColor:i Colors.transparent,\n+                backgroundColor:isEnabled : Colors.transparent,\n                 shadowColor: Colors.transparent,\n                 shape: RoundedRectangleBorder(\n                   borderRadius: BorderRadius.circular(14),\n                 ),\n"
+                },
+                {
+                    "date": 1762460391341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n             ),\n             child: ElevatedButton(\n               onPressed: isEnabled ? onPressed : null,\n               style: ElevatedButton.styleFrom(\n-                backgroundColor:isEnabled : Colors.transparent,\n+                backgroundColor:isEnabled ? Colors.transparent : C,\n                 shadowColor: Colors.transparent,\n                 shape: RoundedRectangleBorder(\n                   borderRadius: BorderRadius.circular(14),\n                 ),\n"
+                },
+                {
+                    "date": 1762460398130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n             ),\n             child: ElevatedButton(\n               onPressed: isEnabled ? onPressed : null,\n               style: ElevatedButton.styleFrom(\n-                backgroundColor:isEnabled ? Colors.transparent : C,\n+                backgroundColor:isEnabled ? Colors.transparent : Colors.black38,\n                 shadowColor: Colors.transparent,\n                 shape: RoundedRectangleBorder(\n                   borderRadius: BorderRadius.circular(14),\n                 ),\n"
+                },
+                {
+                    "date": 1762460410342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,11 @@\n             ),\n             child: ElevatedButton(\n               onPressed: isEnabled ? onPressed : null,\n               style: ElevatedButton.styleFrom(\n-                backgroundColor:isEnabled ? Colors.transparent : Colors.black38,\n+                backgroundColor: isEnabled\n+                    ? Colors.transparent\n+                    : Colors.black38,\n                 shadowColor: Colors.transparent,\n                 shape: RoundedRectangleBorder(\n                   borderRadius: BorderRadius.circular(14),\n                 ),\n"
+                },
+                {
+                    "date": 1762497919414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,13 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  Icon(\n-                    Icons.arrow_forward_ios_rounded,\n-                    color: Colors.white.withOpacity(0.9),\n-                    size: 18,\n-                  ),\n+                 \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762497924967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,16 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 \n+                 AssetImage(\n+                    'assets/icons/arrow_right_white.png',\n+                    width: 16,\n+                    height: 16,\n+                    color: !isEnabled\n+                        ? const Color(0xFFFFFFFF)\n+                        : Colors.white,\n+                  ),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762497938584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,16 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 AssetImage(\n-                    'assets/icons/arrow_right_white.png',\n-                    width: 16,\n-                    height: 16,\n-                    color: !isEnabled\n-                        ? const Color(0xFFFFFFFF)\n-                        : Colors.white,\n-                  ),\n+                 \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762497943809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,16 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 \n+                 Image.asset(\n+                    'assets/icons/arrow_right_white.png',\n+                    width: 16,\n+                    height: 16,\n+                    color: !isEnabled\n+                        ? const Color(0xFFFFFFFF)\n+                        : Colors.white,\n+                  ),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762497950403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n                  Image.asset(\n-                    'assets/icons/arrow_right_white.png',\n+                    'assets/icons/arrow_right_whit.png',\n                     width: 16,\n                     height: 16,\n                     color: !isEnabled\n                         ? const Color(0xFFFFFFFF)\n"
+                },
+                {
+                    "date": 1762497955540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n                  Image.asset(\n-                    'assets/icons/arrow_right_whit.png',\n+                    'assets/icons/arrow_forward.png',\n                     width: 16,\n                     height: 16,\n                     color: !isEnabled\n                         ? const Color(0xFFFFFFFF)\n"
+                },
+                {
+                    "date": 1762497965457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,15 +84,13 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 Image.asset(\n+                  Image.asset(\n                     'assets/icons/arrow_forward.png',\n-                    width: 16,\n+                    width: 6,\n                     height: 16,\n-                    color: !isEnabled\n-                        ? const Color(0xFFFFFFFF)\n-                        : Colors.white,\n+                    color: !isEnabled ? const Color(0xFFFFFFFF) : Colors.white,\n                   ),\n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762497978350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n                   const SizedBox(width: 6),\n                   Image.asset(\n                     'assets/icons/arrow_forward.png',\n                     width: 6,\n-                    height: 16,\n+                    height: 36,\n                     color: !isEnabled ? const Color(0xFFFFFFFF) : Colors.white,\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1762497988308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n                   const SizedBox(width: 6),\n                   Image.asset(\n                     'assets/icons/arrow_forward.png',\n                     width: 6,\n-                    height: 36,\n+                    height:56,\n                     color: !isEnabled ? const Color(0xFFFFFFFF) : Colors.white,\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1762498036702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,14 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  Image.asset(\n-                    'assets/icons/arrow_forward.png',\n-                    width: 6,\n-                    height:56,\n-                    color: !isEnabled ? const Color(0xFFFFFFFF) : Colors.white,\n-                  ),\n+                 \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498042900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 \n+                 Icon(Flue)\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498084414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                 Icon(Flue)\n+                //  Icon(FluentIcons)\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498098186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                //  Icon(FluentIcons)\n+               \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498117650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import 'package:fluentui_system_icons/fluentui_system_icons.dart';\n import 'package:flutter/material.dart';\n \n class GradientNextButton extends StatelessWidget {\n   final bool isEnabled;\n@@ -84,9 +85,10 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               \n+               Icon(FluentIcons.speaker_arrow_right_24_regular, color: Colors.white);\n+\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498122936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons.speaker_arrow_right_24_regular, color: Colors.white);\n+               Icon(FluentIcons., color: Colors.white);\n \n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762498128629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons., color: Colors.white);\n+               Icon(FluentIcons.speaker_ar, color: Colors.white);\n \n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762498146333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons.speaker_ar, color: Colors.white);\n+               Icon(FluentIcons.speake, color: Colors.white);\n \n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762498162511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons.speake, color: Colors.white);\n+               Icon(FluentIcons.speaker_0_16_filled, color: Colors.white);\n \n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762498167840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons.speaker_0_16_filled, color: Colors.white);\n+               Icon(FluentIcons.speaker_0_16_filled, color: Colors.white),\n \n                 ],\n               ),\n             ),\n"
+                },
+                {
+                    "date": 1762498185697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,10 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-               Icon(FluentIcons.speaker_0_16_filled, color: Colors.white),\n-\n+                    Icon(FluentIcons.speaker_0_16_filled, color: Colors.white),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498195337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                    Icon(FluentIcons.speaker_0_16_filled, color: Colors.white),\n+                    Icon(FluentIcons.speak, color: Colors.white),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498204278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                    Icon(FluentIcons.speak, color: Colors.white),\n+                    Icon(FluentIcons.speaker_settings_24_filled, color: Colors.white),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498242068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                    Icon(FluentIcons.speaker_settings_24_filled, color: Colors.white),\n+                  \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498251022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import 'package:fluentui_system_icons/fluentui_system_icons.dart';\n import 'package:flutter/material.dart';\n \n class GradientNextButton extends StatelessWidget {\n   final bool isEnabled;\n@@ -85,9 +84,19 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  \n+                  Stack(\n+  alignment: Alignment.centerRight,\n+  children: [\n+    Icon(Icons.volume_up_rounded, color: Colors.white, size: 26),\n+    Positioned(\n+      right: 0,\n+      child: Icon(Icons.arrow_right_alt_rounded, color: Colors.white, size: 20),\n+    ),\n+  ],\n+)\n+\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498342831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import 'package:fluentui_system_icons/fluentui_system_icons.dart';\n import 'package:flutter/material.dart';\n \n class GradientNextButton extends StatelessWidget {\n   final bool isEnabled;\n@@ -84,19 +85,9 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  Stack(\n-  alignment: Alignment.centerRight,\n-  children: [\n-    Icon(Icons.volume_up_rounded, color: Colors.white, size: 26),\n-    Positioned(\n-      right: 0,\n-      child: Icon(Icons.arrow_right_alt_rounded, color: Colors.white, size: 20),\n-    ),\n-  ],\n-)\n-\n+                  \n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498358867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import 'package:fluentui_system_icons/fluentui_system_icons.dart';\n import 'package:flutter/material.dart';\n-\n+import 'package:flutter_svg/flutter_svg.dart';\n class GradientNextButton extends StatelessWidget {\n   final bool isEnabled;\n   final VoidCallback? onPressed;\n \n@@ -85,9 +85,13 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  \n+                  SvgPicture.asset(\n+  'assets/icons/speaker_arrow_right.svg',\n+  width: 28,\n+  color: Colors.white,\n+);\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498433176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import 'package:fluentui_system_icons/fluentui_system_icons.dart';\n import 'package:flutter/material.dart';\n import 'package:flutter_svg/flutter_svg.dart';\n+\n class GradientNextButton extends StatelessWidget {\n   final bool isEnabled;\n   final VoidCallback? onPressed;\n \n@@ -86,12 +86,12 @@\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n                   SvgPicture.asset(\n-  'assets/icons/speaker_arrow_right.svg',\n-  width: 28,\n-  color: Colors.white,\n-);\n+                    'assets/icons/.svg',\n+                    width: 28,\n+                    color: Colors.white,\n+                  ),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498479719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,9 +86,9 @@\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n                   SvgPicture.asset(\n-                    'assets/icons/.svg',\n+                    'assets/icons/Vector.svg',\n                     width: 28,\n                     color: Colors.white,\n                   ),\n                 ],\n"
+                },
+                {
+                    "date": 1762498510878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,13 +85,13 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  SvgPicture.asset(\n-                    'assets/icons/Vector.svg',\n-                    width: 28,\n-                    color: Colors.white,\n-                  ),\n+                  // SvgPicture.asset(\n+                  //   'assets/icons/Vector.svg',\n+                  //   width: 28,\n+                  //   color: Colors.white,\n+                  // ),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498575827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,13 +85,13 @@\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n                   const SizedBox(width: 6),\n-                  // SvgPicture.asset(\n-                  //   'assets/icons/Vector.svg',\n-                  //   width: 28,\n-                  //   color: Colors.white,\n-                  // ),\n+                  SvgPicture.asset(\n+                    'assets/icons/Vector.svg',\n+                    width: 28,\n+                    color: Colors.white,\n+                  ),\n                 ],\n               ),\n             ),\n           ),\n"
+                },
+                {
+                    "date": 1762498585305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n                   ),\n                   const SizedBox(width: 6),\n                   SvgPicture.asset(\n                     'assets/icons/Vector.svg',\n-                    width: 28,\n+                    width: 8,\n                     color: Colors.white,\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1762498606861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n                   ),\n                   const SizedBox(width: 6),\n                   SvgPicture.asset(\n                     'assets/icons/Vector.svg',\n-                    width: 8,\n+                    width: 1,\n                     color: Colors.white,\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1762498619783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,12 +84,12 @@\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n-                  const SizedBox(width: 6),\n+                  const SizedBox(width: ),\n                   SvgPicture.asset(\n                     'assets/icons/Vector.svg',\n-                    width: 1,\n+                    width: 18,\n                     color: Colors.white,\n                   ),\n                 ],\n               ),\n"
+                },
+                {
+                    "date": 1762499712313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,11 +84,11 @@\n                       fontWeight: FontWeight.w600,\n                       letterSpacing: 0.5,\n                     ),\n                   ),\n-                  const SizedBox(width: ),\n+                  const SizedBox(width: 8),\n                   SvgPicture.asset(\n-                    'assets/icons/Vector.svg',\n+                    'assets/icons/.svg',\n                     width: 18,\n                     color: Colors.white,\n                   ),\n                 ],\n"
+                }
+            ],
+            "date": 1762459529512,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\n\nclass GradientNextButton extends StatelessWidget {\n  final bool isEnabled;\n  final VoidCallback? onPressed;\n\n  const GradientNextButton({\n    super.key,\n    required this.isEnabled,\n    this.onPressed,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    return Padding(\n      padding: const EdgeInsets.symmetric(horizontal: 20),\n      child: AnimatedOpacity(\n        duration: const Duration(milliseconds: 400),\n        opacity: isEnabled ? 1.0 : 0.7,\n        child: Container(\n          decoration: BoxDecoration(\n            borderRadius: BorderRadius.circular(14),\n            gradient: const LinearGradient(\n              begin: Alignment.topCenter,\n              end: Alignment.bottomCenter,\n              colors: [\n                Color(0x0DFFFFFF), // Top subtle shine\n                Color(0x0AFFFFFF), // Slight bottom fade\n                Color(0xFF0E0E0E), // Deep bottom tone\n              ],\n              stops: [0.0, 0.4, 1.0],\n            ),\n            border: Border.all(\n              color: const Color(0x33FFFFFF), // thin outer border\n              width: 1.0,\n            ),\n            boxShadow: const [\n              BoxShadow(\n                color: Colors.black54,\n                offset: Offset(0, 2),\n                blurRadius: 6,\n                spreadRadius: 0,\n              ),\n            ],\n          ),\n          child: ElevatedButton(\n            onPressed: isEnabled ? onPressed : null,\n            style: ElevatedButton.styleFrom(\n              backgroundColor: Colors.transparent,\n              shadowColor: Colors.transparent,\n              padding: const EdgeInsets.symmetric(vertical: 16),\n              shape: RoundedRectangleBorder(\n                borderRadius: BorderRadius.circular(14),\n              ),\n            ),\n            child: Row(\n              mainAxisAlignment: MainAxisAlignment.center,\n              children: [\n                const Text(\n                  \"Next\",\n                  style: TextStyle(\n                    fontFamily: 'Space Grotesk',\n                    fontSize: 16,\n                    color: Colors.white,\n                    fontWeight: FontWeight.w600,\n                    letterSpacing: 0.5,\n                  ),\n                ),\n                const SizedBox(width: 6),\n                Icon(\n                  Icons.arrow_forward_ios_rounded,\n                  color: Colors.white.withOpacity(0.9),\n                  size: 18,\n                ),\n              ],\n            ),\n          ),\n        ),\n      ),\n    );\n  }\n}\n"
+        }
+    ]
+}
