@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1762436405051,
@@ -32,6 +32,10 @@
                 {
                     "date": 1762504511005,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   static  TextStyle experienceDescriptionHint = TextStyle(\n     fontFamily: 'Space Grotesk',\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n-    color: AppColors.,\n+    color: AppColors.whiteBorder2,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n"
+                },
+                {
+                    "date": 1762509068873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,37 +1,34 @@\n import 'package:flutter/material.dart';\n import 'package:hotspots_hostes/utils/app_colors.dart';\n+import 'package:google_fonts/google_fonts.dart';\n \n class CustomTextStyles {\n   // Experience Selection Screen Styles\n-  static const TextStyle experienceSelectionTitleLarge = TextStyle(\n-    fontFamily: 'Space Grotesk',\n+  static final TextStyle experienceSelectionTitleLarge = GoogleFonts.spaceGrotesk(\n     fontWeight: FontWeight.w700, // 700\n     fontSize: 24,\n     height: 32 / 24, // line-height: 32px / font-size: 24px\n     letterSpacing: -0.02 * 24, // letter-spacing: -2% of 24px\n   );\n \n-  static const TextStyle experienceSelectionTitleSmall = TextStyle(\n-    fontFamily: 'Space Grotesk',\n+  static final TextStyle experienceSelectionTitleSmall = GoogleFonts.spaceGrotesk(\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 14,\n     height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n   );\n \n-  static  TextStyle experienceDescriptionHint = TextStyle(\n-    fontFamily: 'Space Grotesk',\n+  static final TextStyle experienceDescriptionHint = GoogleFonts.spaceGrotesk(\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 20,\n     color: AppColors.whiteBorder2,\n     height: 28 / 20, // line-height: 28px / font-size: 20px\n     letterSpacing: -0.01 * 20, // letter-spacing: -1% of 20px\n   );\n \n   // Onboarding Question Screen Styles\n-  static const TextStyle onboardingQuestionHint = TextStyle(\n-    fontFamily: 'Space Grotesk',\n+  static final TextStyle onboardingQuestionHint = GoogleFonts.spaceGrotesk(\n     fontWeight: FontWeight.normal, // 400\n     fontSize: 14,\n     height: 20 / 14, // line-height: 20px / font-size: 14px\n     letterSpacing: 0, // letter-spacing: 0%\n"
                 }
             ],
             "date": 1762436405051,
